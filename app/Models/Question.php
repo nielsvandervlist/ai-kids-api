@@ -4,14 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Tychovbh\LaravelCrud\Contracts\GetParams;
 
 class Question extends Model
 {
-    use HasFactory;
+    use HasFactory, GetParams;
 
     protected $fillable = [
         'mission_id',
-        'choice_id',
         'value',
     ];
+
+    protected array $params = ['mission_id'];
 }

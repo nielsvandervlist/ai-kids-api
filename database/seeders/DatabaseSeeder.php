@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Game::factory(1)->create();
         \App\Models\Mission::factory(1)->create();
         \App\Models\Question::factory(1)->create();
+        \App\Models\Choice::factory(1)->create();
         \App\Models\UserGame::factory(1)->create();
         \App\Models\UserMission::factory(1)->create();
     }

@@ -17,8 +17,6 @@ return new class extends Migration
             $table->string('value');
             $table->unsignedBigInteger('mission_id');
             $table->foreign('mission_id')->references('id')->on('missions');
-            $table->unsignedBigInteger('choice_id');
-            $table->foreign('choice_id')->references('id')->on('choices');
         });
     }
 

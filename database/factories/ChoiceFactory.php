@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Question;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,6 +20,7 @@ class ChoiceFactory extends Factory
         return [
             'value' => $this->faker->name,
             'right' => $this->faker->boolean,
+            'question_id' => Question::factory()->create()->id,
         ];
     }
 }

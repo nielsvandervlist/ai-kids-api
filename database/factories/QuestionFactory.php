@@ -20,7 +20,6 @@ class QuestionFactory extends Factory
     {
         return [
             'mission_id' => Mission::factory()->create()->id,
-            'choice_id' => Choice::factory()->create()->id,
             'value' => $this->faker->name,
         ];
     }
