@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Routes\UserRoute;
 use App\Routes\MissionRoute;
@@ -31,4 +32,10 @@ UserGameRoute::routes();
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::middleware(['auth:sanctum'])->put('/user', function (Request $request) {
+    $user = Auth::user();
+    $user->points = $request->points;
+    $user->save();
 });

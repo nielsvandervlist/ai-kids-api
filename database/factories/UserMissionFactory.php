@@ -23,7 +23,8 @@ class UserMissionFactory extends Factory
             'user_id' => User::factory()->create()->id,
             'mission_id' => Mission::factory()->create()->id,
             'question_id' => Question::factory()->create()->id,
-            'stars' => rand(1, 3)
+            'stars' => rand(1, 3),
+            'points' => rand(1, 3)
         ];
     }
 }

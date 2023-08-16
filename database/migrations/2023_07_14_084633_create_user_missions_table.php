@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('question_id');
             $table->foreign('question_id')->references('id')->on('questions');
             $table->integer('stars');
+            $table->integer('points');
         });
     }
 
