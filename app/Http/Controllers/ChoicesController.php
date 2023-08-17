@@ -11,7 +11,7 @@ class ChoicesController extends Controller
 {
     public function checkAnswer(Request $request): \Illuminate\Http\JsonResponse
     {
-        $answer = $request->answer;
+        $answer = (int)$request->answer;
         $mission_id = $request->mission_id;
         $user_id = Auth::id();
 
@@ -20,7 +20,6 @@ class ChoicesController extends Controller
         if ($user_mission) {
             $pointsToAdd = $answer ? 1 : 0;
             $user_mission->points += $pointsToAdd;
-
             $user_mission->save();
 
             return response()->json([
@@ -29,7 +28,7 @@ class ChoicesController extends Controller
         }
 
         return response()->json([
-            'message' => 'User mission not found'
-        ], 404);
+            'message' => 'No points added'
+        ]);
     }
 }
