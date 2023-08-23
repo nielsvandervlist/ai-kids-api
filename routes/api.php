@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -29,13 +30,12 @@ ChoiceRoute::routes();
 QuestionRoute::routes();
 UserMissionRoute::routes();
 UserGameRoute::routes();
+UserRoute::routes();
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware(['auth:sanctum'])->put('/user', function (Request $request) {
-    $user = Auth::user();
-    $user->points = $request->points;
-    $user->save();
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::put('/user/points', [UserController::class, 'points'])->name('user.points');
 });

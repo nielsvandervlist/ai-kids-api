@@ -19,4 +19,10 @@ class UserMissionParams extends Params
 
         $this->query->firstOrCreate(['mission_id' => $value, 'user_id' => Auth::id()], $data);
     }
+
+    public function user_id(string $value)
+    {
+            $this->query->join('missions', 'missions.id', 'user_missions.mission_id')
+                ->where('user_id', $value);
+    }
 }

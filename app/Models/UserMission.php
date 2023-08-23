@@ -10,7 +10,7 @@ class UserMission extends Model
 {
     use HasFactory, GetParams;
 
-    protected $params = ['mission_id'];
+    protected $params = ['mission_id', 'user_id'];
 
     protected $fillable = [
         'mission_id',

@@ -10,14 +10,12 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
+    public function run()
     {
-        \App\Models\User::factory(1)->create();
-        \App\Models\Game::factory(1)->create();
-        \App\Models\Mission::factory(1)->create();
-        \App\Models\Question::factory(1)->create();
-        \App\Models\Choice::factory(1)->create();
-        \App\Models\UserGame::factory(1)->create();
-        \App\Models\UserMission::factory(1)->create();
+        $this->call([
+            MissionSeeder::class,
+            QuestionSeeder::class,
+            ChoiceSeeder::class,
+        ]);
     }
 }
